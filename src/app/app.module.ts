@@ -3,6 +3,8 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Main } from '../pages/main/main';
 import { Cart } from '../pages/cart/cart';
+import {TEAS} from '../providers/tea-data';
+
 
 @NgModule({
   declarations: [
