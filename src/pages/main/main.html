@@ -8,6 +8,33 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-list>
+  <ion-item-sliding *ngFor="let tea of teas">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{tea.imageUrl}}">
+      </ion-avatar>
+      <h2>{{tea.name}}</h2>
+      <h4 item-right>{{tea.price}}</h4>
+      <p>{{tea.ingredients}}</p>
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button color="primary">
+        <ion-icon name="text"></ion-icon>
+        Text
+      </button>
+      <button ion-button color="secondary">
+        <ion-icon name="call"></ion-icon>
+        Call
+      </button>
+    </ion-item-options>
+    <ion-item-options side="right">
+      <button ion-button color="primary">
+        <ion-icon name="mail"></ion-icon>
+        Email
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 
 </ion-content>
