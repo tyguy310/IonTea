@@ -9,31 +9,42 @@
 
 <ion-content padding>
   <ion-list>
-  <ion-item-sliding *ngFor="let tea of teas">
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="{{tea.imageUrl}}">
-      </ion-avatar>
-      <h2>{{tea.name}}</h2>
-      <p>{{tea.ingredients}}</p>
-    </ion-item>
-    <ion-item-options side="left">
-      <button ion-button color="primary">
-        <ion-icon name="bonfire"></ion-icon>
-        {{tea.rating}}
-      </button>
-      <button ion-button color="secondary">
-        <ion-icon name="cafe"></ion-icon>
-        {{tea.caffeineScale}}
-      </button>
-    </ion-item-options>
-    <ion-item-options side="right">
-      <button ion-button color="primary">
+  <ion-card *ngFor="let tea of teas">
+    <img src="{{tea.imageUrl}}">
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="primary"><strong>QTY: </strong></ion-label>
+        <ion-input type="number" min="0" [(ngModel)]="qty" name="qty"></ion-input>
+      </ion-item>
+
+      <button ion-button icon-only block (click)="checkCart(tea)">
         <ion-icon name="cart"></ion-icon>
-        ${{tea.price}}
       </button>
-    </ion-item-options>
-  </ion-item-sliding>
+
+      <ion-card-title>{{tea.name}}</ion-card-title>
+      <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
+      <ion-row>
+        <ion-col>
+          <p>
+            <ion-icon name="thumbs-up"> {{tea.rating}}</ion-icon>
+          </p>
+        </ion-col>
+        <ion-col>
+          <p>
+            <ion-icon name="cafe"> {{tea.caffeineScale}}</ion-icon>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p><strong>Is Available:</strong> {{tea.inStock}}</p>
+        </ion-col>
+        <ion-col>
+          <p><strong>Price:</strong> {{tea.price | currency:USD:true}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-list>
 
 </ion-content>

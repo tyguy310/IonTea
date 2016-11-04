@@ -4,7 +4,7 @@ export class Tea {
   ingredients: string;
   caffeineScale: number;
   price: number;
-  inStock: boolean;
+  inStock: any;
   rating: number;
   imageUrl: string;
   categories: Array<string>
